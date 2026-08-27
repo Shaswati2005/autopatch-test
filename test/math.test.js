@@ -1,10 +1,35 @@
-const { test, describe } = require('node:test');
-const assert = require('node:assert');
+const assert = require('assert');
 const { add, subtract, formatGreeting } = require('../src/math');
+
+let testFn = global.test || global.it;
+let describeFn = global.describe;
+
+if (!testFn || !describeFn) {
+  try {
+    const nodeTest = require('node:test');
+    testFn = nodeTest.test;
+    describeFn = nodeTest.describe;
+  } catch (e) {
+    testFn = (name, fn) => {
+      try {
+        fn();
+      } catch (err) {
+        console.error(`✗ ${name}`);
+        throw err;
+      }
+    };
+    describeFn = (name, fn) => {
+      fn();
+    };
+  }
+}
+
+const test = testFn;
+const describe = describeFn;
 
 describe('Math & Greeting Unit Tests', () => {
   test('add calculates sum of two numbers', () => {
-    assert.strictEqual(add(3, 2), 5);
+    assert.strictEqual(add(2, 3), 5);
   });
 
   test('subtract calculates difference of two numbers', () => {
