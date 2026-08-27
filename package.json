@@ -1,0 +1,12 @@
+{
+  "name": "demo-node-app",
+  "version": "1.0.0",
+  "description": "Minimal Node.js app to trigger on-demand CI failures and test AutoPatch remediation",
+  "main": "src/math.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["autopatch", "ci-testing", "nodejs"],
+  "author": "",
+  "license": "MIT"
+}
