@@ -4,7 +4,7 @@ const { add, subtract, formatGreeting } = require('../src/math');
 
 describe('Math & Greeting Unit Tests', () => {
   test('add calculates sum of two numbers', () => {
-    assert.strictEqual(add(2, 3), 5);
+    assert.strictEqual(add(3, 2), 5);
   });
 
   test('subtract calculates difference of two numbers', () => {
